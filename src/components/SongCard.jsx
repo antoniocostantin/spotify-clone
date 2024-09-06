@@ -1,8 +1,11 @@
 import { Col } from "react-bootstrap"
+import { useNavigate } from "react-router-dom"
 
 function SongCard ({songDetails}) {
+    const navigate = useNavigate()
+
     return (
-        <Col className="text-center">
+        <Col className="text-center songImg clickable">
           <img className="img-fluid" src={
             songDetails.album.cover_medium
           } alt="track" />

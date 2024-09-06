@@ -61,6 +61,14 @@ ul {
   font-size: 1.5em;
 }
 
+.clickable{
+  cursor: pointer;
+}
+
+.songImg:hover {
+  transform: scale(1.2) !important;
+}
+
 .signup-btn {
   background-color: white !important;
   color: black !important;
@@ -71,7 +79,7 @@ ul {
 }
 
 .lastGallery{
-  margin-bottom: 5em;
+  margin-bottom: 6em;
 }
 
 .logo{

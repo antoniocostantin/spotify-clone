@@ -1,17 +1,26 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { Button } from 'react-bootstrap';
-import logo from '../assets/logo/logo.png'
+import { Button, Form, InputGroup } from "react-bootstrap";
+import logo from "../assets/logo/logo.png";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { getSongsAction } from "../redux/actions";
 
 function Sidebar() {
+  const [query, setQuery] = useState("");
+    const dispatch = useDispatch()
+  const navigate = useNavigate();
+
   return (
-    <aside className="col col-2">
+    <aside className="col col-lg-1">
       <nav
         className="navbar navbar-expand-md fixed-left justify-content-between"
         id="sidebar"
       >
         <div className="container flex-column align-items-start">
           <a className="navbar-brand">
-            <img src={logo} alt="Spotify Logo" className='logo' />
+            <Link to={'/'} className="">
+            <img src={logo} alt="Spotify Logo" className="logo"/></Link>
           </a>
           <button
             className="navbar-toggler"
@@ -26,7 +35,7 @@ function Sidebar() {
           </button>
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav">
-              <ul className='p-0'>
+              <ul className="p-0">
                 <li>
                   <a className="nav-item nav-link d-flex align-items-center">
                     <i className="bi bi-house-door-fill"></i>&nbsp; Home
@@ -39,17 +48,24 @@ function Sidebar() {
                 </li>
                 <li>
                   <div className="input-group mt-3">
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Search"
-                      aria-label="Search"
-                    />
-                    <div className="input-group-append">
-                      <button className="btn btn-outline-secondary btn-sm h-100">
-                        GO
-                      </button>
-                    </div>
+                    <Form onSubmit={(e) => {
+                        e.preventDefault()
+                        navigate('/')
+                        dispatch(getSongsAction(query))
+                    }}>
+                      <InputGroup className="mb-3">
+                        <Form.Control
+                        onChange={(e)=> setQuery(e.target.value)}
+                        value={query}
+                          placeholder="Search..."
+                          aria-label="Recipient's username"
+                          aria-describedby="basic-addon2"
+                        />
+                        <Button type="submit" variant="outline-secondary" id="button-addon2">
+                          GO
+                        </Button>
+                      </InputGroup>
+                    </Form>
                   </div>
                 </li>
               </ul>
@@ -63,7 +79,7 @@ function Sidebar() {
           <Button className="login-btn" type="button">
             Login
           </Button>
-          <p className='mb-2'>Cookie Policy | Privacy</p>
+          <p className="mb-2">Cookie Policy | Privacy</p>
         </div>
       </nav>
     </aside>

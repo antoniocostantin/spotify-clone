@@ -16,7 +16,7 @@ function Gallery({ artist, playlist }) {
       if (response.ok) {
         const data = await response.json();
         setSongs(data.data);
-        console.log(data);
+        console.log(data.data);
       } else {
         alert("Error fetching results");
       }

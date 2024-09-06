@@ -1,8 +1,12 @@
 import { Col, Row } from "react-bootstrap";
 import Gallery from "./Gallery";
+import Search from "./Search";
+import { useSelector } from "react-redux";
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
 const Home = () => {
+  const searchedSongs = useSelector((state) => state.songs.results);
+
   return (
     <>
       <div className="row">
@@ -14,21 +18,32 @@ const Home = () => {
           <a href="#">DISCOVER</a>
         </div>
       </div>
-      <Row>
-        <Col xs={10}>
-            <Gallery playlist={'Rock classic'} artist={'Queen'} key={1} />
-        </Col>
-      </Row>
-      <Row>
-        <Col xs={10}>
-            <Gallery playlist={'Pop culture'} artist={'Lana del rey'} key={2} />
-        </Col>
-      </Row>
-      <Row>
-        <Col xs={10} className='lastGallery'>
-            <Gallery playlist={'#Hip-Hop'} artist={'Eminem'} key={3} />
-        </Col>
-      </Row>
+      {searchedSongs? (
+        <Search searchedSongs={searchedSongs}/>
+      ) : (
+        <>
+          {" "}
+          <Row>
+            <Col xs={10}>
+              <Gallery playlist={"Rock classic"} artist={"Queen"} key={1} />
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={10}>
+              <Gallery
+                playlist={"Pop culture"}
+                artist={"Lana del rey"}
+                key={2}
+              />
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={10} className="lastGallery">
+              <Gallery playlist={"#Hip-Hop"} artist={"Eminem"} key={3} />
+            </Col>
+          </Row>{" "}
+        </>
+      )}
     </>
   );
 };
