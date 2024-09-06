@@ -14,21 +14,21 @@ body {
 
 /*SIDEBAR SECTION*/
 .navbar.fixed-left {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 230px;
-  flex-flow: column nowrap;
-  align-items: flex-start;
-  background-color: black;
-  z-index: 1200;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 230px !important;
+  flex-flow: column nowrap !important;
+  align-items: flex-start !important;
+  background-color: black !important;
+  z-index: 1200 !important;
 }
 
 .navbar.fixed-left .navbar-collapse .navbar-nav a {
   color: rgb(145, 145, 145) !important;
-  transition: 0.3s;
+  transition: 0.3s  !important;
 }
 
 .navbar.fixed-left .navbar-collapse .navbar-nav a:hover {
@@ -36,9 +36,9 @@ body {
 }
 
 .navbar.fixed-left .navbar-brand {
-  padding-top: 20px;
-  padding-bottom: 30px;
-  padding-left: 10px;
+  padding-top: 10px !important;
+  padding-bottom: 15px !important;
+  padding-left: 10px !important;
 }
 
 ul {
@@ -47,14 +47,15 @@ ul {
 }
 
 .nav-btn {
-  margin-bottom: 20px;
+  margin-bottom: 20px !important;
   text-align: center;
 }
 
-.nav-btn a {
-  color: rgb(145, 145, 145);
+.nav-btn p {
+  color: rgb(145, 145, 145) !important;
   text-decoration: none;
 }
+
 
 .nav-link i {
   font-size: 1.5em;
@@ -69,12 +70,16 @@ ul {
   margin-bottom: 20px !important;
 }
 
+.lastGallery{
+  margin-bottom: 5em;
+}
+
 .logo{
-  height:40px !important;
+  height:35px !important;
 }
 
 .signup-btn:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
   color: white !important;
   background-color: rgb(60, 211, 60) !important;
   border: 1px solid rgb(60, 211, 60) !important;
@@ -86,11 +91,11 @@ ul {
   border: 1px solid white !important;
   border-radius: 20px !important;
   width: 180px !important;
-  margin-bottom: 20px !important;
+  margin-bottom: 15px !important;
 }
 
 .login-btn:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
   color: black !important;
   background-color: white !important;
 }
@@ -109,7 +114,7 @@ ul {
 }
 
 .playerControls div {
-  justify-content: space-between;
+  justify-content: space-between !important;
 }
 
 .playerControls div:first-of-type {
@@ -118,26 +123,26 @@ ul {
 }
 
 .playerControls a img {
-  width: 14px;
-  margin-top: 1rem;
-  filter: brightness(60%);
+  width: 14px  !important;
+  margin-top: 1rem  !important;
+  filter: brightness(60%)  !important;
 }
 
 .playerControls a:hover {
-  filter: brightness(80%);
+  filter: brightness(80%)  !important;
   color: #282828 !important;
 }
 
 .progress {
-  color: white;
-  background-color: #414141;
-  height: 3px;
+  color: #1DB954 !important;
+  background-color: #414141 !important;
+  height: 3px !important;
 }
 
 @media screen and (min-width: 1200px) {
   .playerControls div:first-of-type {
-    margin-left: 25%;
-    margin-right: 25%;
+    margin-left: 25%  !important;
+    margin-right: 25%  !important;
   }
 }
 

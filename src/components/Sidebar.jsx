@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import { Button } from 'react-bootstrap';
 import logo from '../assets/logo/logo.png'
 
@@ -62,7 +63,7 @@ function Sidebar() {
           <Button className="login-btn" type="button">
             Login
           </Button>
-          <p >Cookie Policy | Privacy</p>
+          <p className='mb-2'>Cookie Policy | Privacy</p>
         </div>
       </nav>
     </aside>
