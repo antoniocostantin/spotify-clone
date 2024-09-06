@@ -6,8 +6,8 @@ import Sidebar from "./components/Sidebar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MusicPlayer from "./components/MusicPlayer";
 import Home from "./components/Home";
-import Search from "./components/Search";
 import Album from "./components/Album";
+import Favourite from "./components/Favourite";
 
 function App() {
   return (
@@ -22,6 +22,7 @@ function App() {
                 element={<Home />}
               />
               <Route path="/:albumId" element={<Album />}/>
+              <Route path="/favourite" element={<Favourite />}/>
             </Routes>
           </main>
         </Row>

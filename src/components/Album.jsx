@@ -32,8 +32,8 @@ const Album = () => {
           <Col>
             <ListGroup>
               
-                  {album !== undefined && (<>{album.tracks.data.map((track) => {
-                    return <TrackList track={track} />;
+                  {album.tracks !== undefined && (<>{album.tracks.data.map((track) => {
+                    return <TrackList key={track.id} track={track} />;
                   })}</>)}
                
             </ListGroup>

@@ -42,9 +42,9 @@ function Sidebar() {
                   </a>
                 </li>
                 <li>
-                  <a className="nav-item nav-link d-flex align-items-center">
+                  <Link to={'/favourite'} className="text-decoration-none nav-item nav-link d-flex align-items-center">
                     <i className="bi bi-book-fill"></i>&nbsp; Your Library
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <div className="input-group mt-3">
