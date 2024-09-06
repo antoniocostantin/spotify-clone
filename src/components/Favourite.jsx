@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Col, Container, ListGroup, Row, Spinner } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Track from "./Track";
-
+let songss = [];
 const Favourite = () => {
   const favourites = useSelector((s) => s.favourite.list);
   const dispatch = useDispatch();
@@ -12,13 +12,18 @@ const Favourite = () => {
 
   const URL = "https://striveschool-api.herokuapp.com/api/deezer/track/";
 
-  const fetchSong = async (query) => {
+  const fetchSong = async (query, i) => {
     try {
       const response = await fetch(URL + query);
       if (response.ok) {
         const data = await response.json();
-        console.log("D", data);
+        console.log("DA", data);
         setSongs(songs.push(data));
+        if (i > favourites.length - 2) {
+          setIsLoading(false);
+          songss = Array.from(songs)
+          console.log("finale", songs);
+        }
       } else {
         alert("Error fetching results");
       }
@@ -28,28 +33,29 @@ const Favourite = () => {
   };
 
   useEffect(() => {
+    setSongs([])
     favourites.map((f, i) => {
-      fetchSong(f);
-      if (i > favourites.length - 3) {
-        setIsLoading(false);
-        console.log("finale", songs);
-      }
+      fetchSong(f, i);
     });
   }, []);
 
   return (
     <>
       <Container>
-        <Row>
+        <Row className="my-5 lastGallery">
           <Col>
-            <ListGroup>
+            <ListGroup className="mb-5">
               {isLoading ? (
                 <Spinner />
               ) : (
                 <>
-                  {/* {songs.map((f) => {
-                    return <Track songinfo={f} />;
-                  })} */}
+                  {songss.map((s) => {
+                    return (
+                      <>
+                        <Track songinfo={s} key={s.id} />
+                      </>
+                    );
+                  })}
                 </>
               )}
             </ListGroup>
