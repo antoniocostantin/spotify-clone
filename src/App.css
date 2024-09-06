@@ -78,8 +78,20 @@ ul {
   margin-bottom: 20px !important;
 }
 
+.favimg{
+  width: 50px !important;
+}
+
 .lastGallery{
-  margin-bottom: 6em;
+  margin-bottom: 10em !important;
+}
+
+.play{
+  width: 20px !important;
+}
+.play:hover{
+  transform: scale(1.2);
+  color: #1DB954 !important;
 }
 
 .logo{
@@ -130,10 +142,30 @@ ul {
   margin-right: 10%;
 }
 
-.playerControls a img {
-  width: 14px  !important;
+.playerControl:hover {
+transform: scale(1.2) !important;
+color: #1DB954 !important;
+}
+.playerControl {
+  width: 15px  !important;
+  object-fit: contain !important;
   margin-top: 1rem  !important;
   filter: brightness(60%)  !important;
+}
+
+.cover{
+  width: 70px !important;
+  margin-left: 4em !important;
+  margin-top: 0.5em !important;
+}
+
+.boh {
+  height: 100px !important;
+  padding: 0 , 5em !important;
+}
+
+.play{
+  width: 10px !important;
 }
 
 .playerControls a:hover {

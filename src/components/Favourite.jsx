@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import { Col, Container, ListGroup, Row, Spinner } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import Track from "./Track";
-let songss = [];
+
 const Favourite = () => {
   const favourites = useSelector((s) => s.favourite.list);
-  const dispatch = useDispatch();
 
   const [songs, setSongs] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -19,11 +18,10 @@ const Favourite = () => {
         const data = await response.json();
         console.log("DA", data);
         setSongs(songs.push(data));
-        if (i > favourites.length - 2) {
-          setIsLoading(false);
-          songss = Array.from(songs)
-          console.log("finale", songs);
-        }
+        if (i === favourites.length - 2) {
+            setIsLoading(false);
+            console.log("finale", songs);
+          }
       } else {
         alert("Error fetching results");
       }
@@ -33,23 +31,21 @@ const Favourite = () => {
   };
 
   useEffect(() => {
-    setSongs([])
-    favourites.map((f, i) => {
-      fetchSong(f, i);
-    });
+    console.log('hahod',favourites)
+    // favourites.map(async(f, i) => {
+    //   await fetchSong(f, i);
+    // });
   }, []);
 
   return (
     <>
       <Container>
-        <Row className="my-5 lastGallery">
+        <Row className="my-5">
           <Col>
-            <ListGroup className="mb-5">
-              {isLoading ? (
-                <Spinner />
-              ) : (
+            <ListGroup className="lastGallery">
+              {favourites && (
                 <>
-                  {songss.map((s) => {
+                  {favourites.map((s) => {
                     return (
                       <>
                         <Track songinfo={s} key={s.id} />

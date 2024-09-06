@@ -1,9 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Card, Col, Container, Row } from "react-bootstrap";
 import SearchCard from "./SearchCard";
+import { useNavigate } from "react-router-dom";
 
 function Search({searchedSongs}) {
 
+    const navigate = useNavigate()
   return (
     <>
       <Container fluid className="mt-5">
@@ -28,7 +30,7 @@ function Search({searchedSongs}) {
                 </Card>
               </Col>
               <Col>
-                <Card border="dark" bg="dark" text="light" className="h-100">
+                <Card border="dark" bg="dark" text="light" className="h-100" onClick={()=>{navigate(`/${searchedSongs[0].album.id}`)}}>
                   <Card.Img
                     variant="top"
                     className="object-fit-cover w-100"
@@ -45,7 +47,7 @@ function Search({searchedSongs}) {
                 </Card>
               </Col>
               <Col>
-                <Card border="dark" bg="dark" text="light" className="h-100">
+                <Card border="dark" bg="dark" text="light" className="h-100"  onClick={()=>{navigate(`/${searchedSongs[1].album.id}`)}}>
                   <Card.Img
                     variant="top"
                     className="object-fit-cover w-100"

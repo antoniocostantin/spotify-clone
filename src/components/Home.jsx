@@ -18,7 +18,7 @@ const Home = () => {
           <a href="#">DISCOVER</a>
         </div>
       </div>
-      {searchedSongs? (
+      {searchedSongs.length > 4? (
         <Search searchedSongs={searchedSongs}/>
       ) : (
         <>

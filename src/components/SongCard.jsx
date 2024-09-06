@@ -5,7 +5,7 @@ function SongCard ({songDetails}) {
     const navigate = useNavigate()
 
     return (
-        <Col className="text-center songImg clickable">
+        <Col className="text-center songImg clickable" onClick={()=>{navigate(`/${songDetails.album.id}`)}}>
           <img className="img-fluid" src={
             songDetails.album.cover_medium
           } alt="track" />

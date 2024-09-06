@@ -1,6 +1,11 @@
+import { type } from "@testing-library/user-event/dist/type"
+
 export const GET_SONGS = 'GET_SONGS'
 export const ADD_TO_FAVOURITE = 'ADD_TO_FAVOURITE'
 export const REMOVE_FROM_FAVOURITE = 'REMOVE_FROM_FAVOURITE'
+export const REMOVE_SONGS = 'REMOVE_SONGS'
+export const SET_PLAYER = 'SET_PLAYER'
+
 
 export const addToFavouriteAction = (track) => ({
     type: ADD_TO_FAVOURITE,
@@ -12,6 +17,10 @@ export const addToFavouriteAction = (track) => ({
     payload: track,
   })
   
+  export const removeSongAction = ()=>({
+    type: REMOVE_SONGS,
+    payload: [],
+  })
 
 const URL = 'https://striveschool-api.herokuapp.com/api/deezer/search?q='
 
@@ -34,7 +43,11 @@ export const getSongsAction = (query) => {
       }
     }
   }
-
+  
+  export const getPlayerAction = (obj) => ({
+    type: SET_PLAYER,
+    payload: obj,
+  })
   
 export const GET_ARTIST = 'GET_ARTIST'
 

@@ -1,4 +1,4 @@
-import { GET_SONGS } from '../actions'
+import { GET_SONGS, REMOVE_SONGS } from '../actions'
 
 const initialState = {
   results: [],
@@ -7,6 +7,11 @@ const initialState = {
 const songsReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_SONGS:
+      return {
+        ...state,
+        results: action.payload,
+      }
+    case REMOVE_SONGS:
       return {
         ...state,
         results: action.payload,

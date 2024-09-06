@@ -4,7 +4,7 @@ import logo from "../assets/logo/logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { getSongsAction } from "../redux/actions";
+import { getSongsAction, removeSongAction } from "../redux/actions";
 
 function Sidebar() {
   const [query, setQuery] = useState("");
@@ -37,9 +37,11 @@ function Sidebar() {
             <div className="navbar-nav">
               <ul className="p-0">
                 <li>
-                  <a className="nav-item nav-link d-flex align-items-center">
+                  <Link to={'/'} onClick={()=>{
+                    dispatch(removeSongAction())
+                  }} className="nav-item nav-link d-flex align-items-center">
                     <i className="bi bi-house-door-fill"></i>&nbsp; Home
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <Link to={'/favourite'} className="text-decoration-none nav-item nav-link d-flex align-items-center">
@@ -55,7 +57,7 @@ function Sidebar() {
                     }}>
                       <InputGroup className="mb-3">
                         <Form.Control
-                        onChange={(e)=> setQuery(e.target.value)}
+                        onChange={(e)=> {setQuery(e.target.value)}}
                         value={query}
                           placeholder="Search..."
                           aria-label="Recipient's username"
